@@ -61,6 +61,8 @@ router.post(
       let user = await User.findOne({ email });
       if (!user)
         return res.status(400).json({ error: "please enter correct data" });
+      console.log("Fetched user:", user);
+
       const compare = await bcrypt.compare(password, user.password);
       if (!compare) {
         return res.status(400).json({ error: "please enter correct data" });
