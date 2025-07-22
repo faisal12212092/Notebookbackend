@@ -38,9 +38,9 @@ router.post(
       const jwtd = jwt.sign(data, jwtToken);
       res.json({ token: jwtd, name: user.name }); // <-- FIXED
     } catch (error) {
-      console.log(error.message);
-      res.status(500).json({ error: "some error occured from server side" });
-    }
+  console.error("Singin Error:", error); // better logging
+  res.status(500).json({ error: "some error occurred from server side" });
+}
   }
 );
 
@@ -73,9 +73,9 @@ router.post(
       const jwtd = jwt.sign(data, jwtToken);
       res.json({ token: jwtd, name: user.name }); // <-- FIXED
     } catch (error) {
-      console.log(error.message);
-      res.status(500).json({ error: "some error occured from server side" });
-    }
+  console.error("Login Error:", error); // better logging
+  res.status(500).json({ error: "some error occurred from server side" });
+}
   }
 );
 
