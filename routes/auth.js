@@ -20,14 +20,11 @@ router.post(
     if (!error.isEmpty()) {
       return res.status(400).json({ errors: error.array() });
     }
-        console.log("upp upp try user.fin");
 
     try {
-     console.log("upp user.fin");
       let use = await User.findOne({ email: req.body.email }); 
       if (use)
         return res.status(400).json({ error: "This user with this email already exist" });
-          console.log("upp bycrypt");
 
       const salt = bcrypt.genSaltSync(10);
       const secPass = await bcrypt.hash(req.body.password, salt);
@@ -45,7 +42,7 @@ router.post(
       res.json({ token: jwtd, name: user.name }); // <-- FIXED
     } catch (error) {
   console.error("Singin Error:", error); // better logging
-  res.status(500).json({ error: "some error occurred from server side(sigin)" });
+  res.status(500).json({ error: "some error occurred from server side(Sigin)" });
 }
   }
 );
@@ -62,18 +59,14 @@ router.post(
     if (!error2.isEmpty()) {
       return res.status(400).json({ errors: error2.array() });
     }
-        console.log("upp req.body");
     const { email, password } = req.body;
         console.log("upp try");
 
     try {
-          console.log("upp user.fin");
 
       let user = await User.findOne({ email });
       if (!user)
         return res.status(400).json({ error: "please enter correct data" });
-      console.log("Fetched user:", user);
-     console.log("upp bycrypt");
 
       const compare = await bcrypt.compare(password, user.password);
       if (!compare) {
@@ -84,7 +77,6 @@ router.post(
           id: user.id,
         },
       };
-          console.log("upp jwt");
 
       const jwtd = jwt.sign(data, jwtToken);
       res.json({ token: jwtd, name: user.name }); // <-- FIXED
