@@ -4,7 +4,8 @@ const router = express.Router();
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken"); //give token to client who sign in
-const jwtToken = "Fomasol"; //like signature
+const jwtsign = process.env.jwtToken || "Fomasol";
+ //like signature
 const fetchuser=require('../middleware/fetchuser');
 
 router.post(
