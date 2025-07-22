@@ -39,7 +39,7 @@ router.post(
       res.json({ token: jwtd, name: user.name }); // <-- FIXED
     } catch (error) {
   console.error("Singin Error:", error); // better logging
-  res.status(500).json({ error: "some error occurred from server side" });
+  res.status(500).json({ error: "some error occurred from server side(sigin)" });
 }
   }
 );
@@ -74,7 +74,7 @@ router.post(
       res.json({ token: jwtd, name: user.name }); // <-- FIXED
     } catch (error) {
   console.error("Login Error:", error); // better logging
-  res.status(500).json({ error: "some error occurred from server side" });
+  res.status(500).json({ error: "some error occurred from server side(login)" });
 }
   }
 );
