@@ -1,4 +1,4 @@
-const mongoURL = "mongodb+srv://myappdbfomaatlas:Faisal@2020@clusterfirstmernfoma.hniygfb.mongodb.net/?retryWrites=true&w=majority&appName=ClusterFirstMernFoma";
+const mongoURL = "mongodb+srv://myappdbfomaatlas:Faisal%402020@clusterfirstmernfoma.hniygfb.mongodb.net/?retryWrites=true&w=majority&appName=ClusterFirstMernFoma";
 
 const mongoose = require('mongoose');
 
