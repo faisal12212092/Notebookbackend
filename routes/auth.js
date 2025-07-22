@@ -90,7 +90,7 @@ router.post(
       res.json({ token: jwtd, name: user.name }); // <-- FIXED
     } catch (error) {
   console.error("Login Error:", error); // better logging
-  res.status(500).json({ error: "some error occurred from server side(login)" });
+  res.status(500).json({ error: error.message });
 }
   }
 );
