@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken"); //give token to client who sign in
-const jwtsign = "Fomasol"; //like signature
+const jwtsign = process.env.jwtToken || "Fomasol";
 const fetchuser=(req,res,next)=>{
     const token=req.header('auth-token');
     if(!token)
